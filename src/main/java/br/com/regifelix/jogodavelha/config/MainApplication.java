@@ -8,9 +8,10 @@ import lombok.Generated;
 
 @SpringBootApplication
 @ComponentScan({ "br.com.regifelix.*" })
+@Generated
 public class MainApplication {
 
-	@Generated
+	
 	public static void main(String[] args) {
 		SpringApplication.run(MainApplication.class, args);
 	}

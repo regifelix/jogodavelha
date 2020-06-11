@@ -26,10 +26,16 @@
     <dependencies>
 
         <!-- MVC -->
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-web</artifactId>
-        </dependency>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-web</artifactId>
+			<exclusions>
+				<exclusion>
+					<groupId>org.springframework.boot</groupId>
+					<artifactId>spring-boot-starter-logging</artifactId>
+				</exclusion>
+			</exclusions>
+		</dependency>
 
         <!-- exclude junit 4 -->
         <dependency>
@@ -76,11 +82,17 @@
 			<version>1.16.16</version>
 			<scope>provided</scope>
 		</dependency>
-		
+		<!--  
 		<dependency>
 			<groupId>log4j</groupId>
 			<artifactId>log4j</artifactId>
 			<version>${log4j.version}</version>
+		</dependency>
+		-->
+		<dependency>
+			<groupId>org.slf4j</groupId>
+			<artifactId>slf4j-simple</artifactId>
+			<version>1.6.1</version>
 		</dependency>
 
     </dependencies>
@@ -120,36 +132,23 @@
 			</plugin>
 			
 			<plugin>
-				<groupId>org.codehaus.mojo</groupId>
-				<artifactId>cobertura-maven-plugin</artifactId>
-				<version>2.7</version>
-				<configuration>
-					<formats>
-						<format>xml</format>
-						<format>html</format>
-					</formats>
-					<instrumentation>
-						<ignores>
-							<ignore>br.com.regifelix.*</ignore>
-						</ignores>
-						<excludes>
-							<exclude>br/com/regifelix/jogodavelha/config/**/*.class</exclude>							
-							<exclude>br/com/regifelix/jogodavelha/business/**/*.class</exclude>	
-							<exclude>br/com/regifelix/jogodavelha/controller/**/*.class</exclude>							
-							<exclude>br/com/**/*MainApplication.class</exclude>
-						</excludes>
-					</instrumentation>
-					<outputDirectory>target/cobertura</outputDirectory>
-					<aggregate>true</aggregate>
-				</configuration>
-				<executions>
-					<execution>
-						<phase>package</phase>
-						<goals>
-							<goal>cobertura</goal>
-						</goals>
-					</execution>
-				</executions>
+			    <groupId>org.jacoco</groupId>
+			    <artifactId>jacoco-maven-plugin</artifactId>
+			    <version>0.7.7.201606060606</version>
+			    <executions>
+			        <execution>
+			            <goals>
+			                <goal>prepare-agent</goal>
+			            </goals>
+			        </execution>
+			        <execution>
+			            <id>report</id>
+			            <phase>prepare-package</phase>
+			            <goals>
+			                <goal>report</goal>
+			            </goals>
+			        </execution>
+			    </executions>
 			</plugin>
 
         </plugins>
