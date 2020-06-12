@@ -34,8 +34,11 @@ public class JogoVelhaController {
 
 	@PostMapping(value = "/v1/jogodavelha", consumes = { "application/json" }, 
 			produces = { "application/json", "application/problem+json" })	
-	@ApiOperation(value = "Verificar vencedor", response = RetornoDTO.class ,consumes = "application/json")
-	public ResponseEntity<RetornoDTO> isVelha (@Valid @ApiParam(value = "Tabuleiro do jogo da velha") @RequestBody TabuleiroDTO tabuleiro) {
+	@ApiOperation(value = "Serviço para verificar se houve vencedor.", response = RetornoDTO.class ,consumes = "application/json")
+	public ResponseEntity<RetornoDTO> isVelha(
+			@Valid @ApiParam(value = "Informe o jogo, deverá ser passado no corpo da requisição o jogo," +
+									 "são aceitos o caracter X, O ou caracter espaço" +
+	                                 " para posições não marcadas no tabuleiro.<br> ") @RequestBody TabuleiroDTO tabuleiro) {
 		
 		if(!jogoBusiness.isJogoValido(tabuleiro)) {
 			RetornoDTO response = RetornoDTO.builder().sucesso(false).mensagem("O jogo informado não é valido!").build();
