@@ -1,5 +1,7 @@
 # jogodavelha
-Projeto Teste Comunidade Pagamentos - Itaú Unibanco
+Projeto Teste de um JOGO da VELHA
+
+o serviço recebe um JSON com um jogo da velha e faz a verificaçao se houve ou nao vencedor.
 
 #GIT REPOSITORY
 https://github.com/regifelix/jogodavelha.git
