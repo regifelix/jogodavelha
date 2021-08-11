@@ -1,5 +1,5 @@
 # jogodavelha
-Projeto Teste de um JOGO da VELHA
+Projeto API de JOGO da VELHA
 
 o serviço recebe um JSON com um jogo da velha e faz a verificaçao se houve ou nao vencedor.
 
@@ -60,9 +60,9 @@ A seguir faço uma breve descrição dos passos realizados para automatizar esse
 
 	Configurado um repositório git no "AWS Code Commit" e o repositório foi clonado numa pasta na maquina local de forma que fique nessa pasta o arquivo Dockerfile, buildspec.yml e o última versão do jar compilado da aplicação
 	Criado o buildspec.yml para fazer Building/Push da imagem do container e configurado no serviço Code Build no AWS para a execução do buildspec.yml
-
-	Foi criado o Pipeline no AWS CodePipeline  de forma que qualquer publicação de commit no repositório git AWS da maquina local, ao fazer push o pipeline ira rodar o codecommit automaticamente e executar o buildspec.yml para publicar uma nova imagem no Repositorio AWS ECS, por exemplo ao commitar uma nova versao do jogodavelha.jar o processo de execução da build da imagem e publicação será automatico.
 	
+	Foi criado o Pipeline no AWS CodePipeline  de forma que qualquer publicação de commit no repositório git AWS da maquina local, ao fazer push o pipeline ira rodar o codecommit automaticamente e executar o buildspec.yml para publicar uma nova imagem no Repositorio AWS ECS, por exemplo ao commitar uma nova versao do jogodavelha.jar o processo de execução da build da imagem e publicação será automatico.
+
 Configuração do Cluster AWS e do Loadbalance:
 	
 Cluster AWS
