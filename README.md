@@ -1,5 +1,5 @@
 # jogodavelha
-Projeto API de JOGO da VELHA
+Projeto API de JOGO da VELHA 1.0
 
 o serviço recebe um JSON com um jogo da velha e faz a verificaçao se houve ou nao vencedor.
 
